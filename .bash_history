@@ -39,3 +39,7 @@ code main.yml
 cd ~
 code deploy.sh
 code cleanup.sh
+git add .
+git commit -m "Confirmed project files and folder structure"
+git branch -M main
+git push -u origin main
