@@ -28,3 +28,14 @@ git remote add origin https://github.com/Thought0904?Techcrush-Mercy-Project.git
 git push -u origin main
 git branch -M  main
 git add
+git add .
+git commit -m "Final project files"
+git push -u origin main
+git remote set-url origin https://github.com/Thoughts0904/Techcrush-Mercy-Project.git
+code deploy.sh
+mkdir -p .github/workflows
+cd .github/workflows
+code main.yml
+cd ~
+code deploy.sh
+code cleanup.sh
