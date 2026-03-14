@@ -1,0 +1,25 @@
+name: Project 4 Deployment Automation
+
+on:
+  push:
+    branches: [ "main" ] # Triggers whenever I push to the main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Pull my code from GitHub into the runner
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      # 2. Log into Azure using my secret
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      # 3. Execute My deployment script
+      - name: Run Deploy Script
+        run: |
+          chmod +x ./deploy.sh
+          ./deploy.sh
