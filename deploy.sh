@@ -32,13 +32,13 @@ az ad group create --display-name "DBAdmins" --mail-nickname "DBAdmins"
 
 # 6. Role Assignment (Task 3)
 echo "Assigning Reader role to DBAdmins..."
-DB_ID=$(az network vnet subnet show --resource-group $RESOURCE_GROUP --vnet-name $VNET_NAME --name DBSubnet --query id --output tsv)
-GROUP_ID=$(az ad group show --group "DBAdmins" --query id --output tsv)
+#DB_ID=$(az network vnet subnet show --resource-group $RESOURCE_GROUP --vnet-name $VNET_NAME --name DBSubnet --query id --output tsv)
+#GROUP_ID=$(az ad group show --group "DBAdmins" --query id --output tsv)
 
-az role assignment create --assignee $GROUP_ID --role "Reader" --scope $DB_ID
+#az role assignment create --assignee $GROUP_ID --role "Reader" --scope $DB_ID
 
 # 7. Add current user as a test user (Task 4)
-MY_ID=$(az ad signed-in-user show --query id --output tsv)
-az ad group member add --group "WebAdmins" --member-id $MY_ID
+#MY_ID=$(az ad signed-in-user show --query id --output tsv)
+#az ad group member add --group "WebAdmins" --member-id $MY_ID
 
 echo "Deployment Complete! Validate using: az role assignment list --scope $DB_ID --output table"
